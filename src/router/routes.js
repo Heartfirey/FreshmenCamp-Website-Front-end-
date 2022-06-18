@@ -10,6 +10,18 @@ const routes = [
         component: () => import('@/views/CoursePage.vue')
     },
     {
+        name: 'register',
+        path: '/register',
+        component: () => import('@/views/RegisterPage.vue')
+
+    },
+    {
+        name: 'tools',
+        path: '/tools',
+        component: () => import('@/views/ToolsPage.vue')
+
+    },
+    {
         name: 'default',
         path: '/',
         redirect: "main"

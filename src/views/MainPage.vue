@@ -1,10 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-
-
-
-
-
   <div class="relative bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -31,7 +26,7 @@
               </div>
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-medium text-gray-500 hover:text-gray-900">{{ item.name }}</a>
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+                <a href="/tools" class="font-medium text-indigo-600 hover:text-indigo-500">软件资源</a>
               </div>
             </nav>
           </div>
@@ -53,7 +48,7 @@
                 <div class="px-2 pt-2 pb-3 space-y-1">
                   <a v-for="item in navigation" :key="item.name" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
                 </div>
-                <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"> Log in </a>
+                <a href="/tools" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"> 软件资源 </a>
               </div>
             </PopoverPanel>
           </transition>
@@ -84,100 +79,62 @@
     </div>
   </div>
 
+  <section class="text-center">
+  <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+    <ul class="grid grid-cols-2 gap-4 border-2 border-indigo-600 rounded-xl lg:grid-cols-4">
+      <li class="p-8">
+        <p class="text-2xl font-extrabold text-indigo-500">50</p>
+        <p class="mt-1 text-lg font-medium">已报名人数</p>
+      </li>
+
+      <li class="p-8">
+        <p class="text-2xl font-extrabold text-indigo-500">2022.8.21</p>
+        <p class="mt-1 text-lg font-medium">开始时间</p>
+      </li>
+
+      <li class="p-8">
+        <p class="text-2xl font-extrabold text-indigo-500">6</p>
+        <p class="mt-1 text-lg font-medium">总课时</p>
+      </li>
+
+      <li class="p-8">
+        <p class="text-2xl font-extrabold text-indigo-500">Online</p>
+        <p class="mt-1 text-lg font-medium">开展形式</p>
+      </li>
+    </ul>
+  </div>
+ </section>
+
   <div id="Introduction" style="margin-top: 176px;">
   <IntroductionCard></IntroductionCard>
   </div>
 
 
-  <footer class="bg-gray-900">
-  <div
-    class="relative max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8 lg:pt-24"
-  >
-    <div class="absolute top-4 sm:top-6 lg:top-8 right-4 sm:right-6 lg:right-8">
-      <a
-        class="inline-block p-2 text-teal-300 transition bg-gray-700 rounded-full sm:p-3 lg:p-4 hover:bg-gray-600"
-        href="#MainContent"
-      >
-        <span class="sr-only">Back to top</span>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </a>
-    </div>
-
-    <div class="lg:flex lg:items-end lg:justify-between">
-      <div>
-        <div class="flex justify-center text-teal-300 lg:justify-start">
-        <img alt="Workflow" class="h-8 w-auto sm:h-16" src="@/assets/logo.png" />
-        </div>
-
-        <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 lg:text-left">
-            Powered by Association of Computer Science <br/> More details to see, please join the QQ group: 114514
-        </p>
-      </div>
-
-      <nav class="mt-12 lg:mt-0" aria-labelledby="footer-navigation">
-        <h2 class="sr-only" id="footer-navigation">Footer navigation</h2>
-
-        <ul
-          class="flex flex-wrap justify-center gap-6 lg:justify-end md:gap-8 lg:gap-12"
-        >
-          <li>
-            <a class="text-white transition hover:text-white/75" href="/"> About </a>
-          </li>
-
-          <li>
-            <a class="text-white transition hover:text-white/75" href="/"> Services </a>
-          </li>
-
-          <li>
-            <a class="text-white transition hover:text-white/75" href="https://acs.jxnu.edu.cn"> OnlineJudge </a>
-          </li>
-
-          <li>
-            <a class="text-white transition hover:text-white/75" href="https://acs.jxnu.edu.cn/acsblog/"> Blog </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <p class="mt-12 text-sm text-center text-gray-400 lg:text-right">
-      Copyright &copy; 2022. All rights reserved.
-    </p>
-  </div>
-</footer>
+    <FooterComponent/>
 </template>
 
 <script setup>
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-import { MenuIcon, XIcon } from '@heroicons/vue/outline'
+    import IntroductionCard from '@/components/IntroductionCard.vue'
+    import FooterComponent from '@/components/footer.vue'
+    import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+    import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 
-const navigation = [
-  { name: '了解详情', href: '#' },
-  { name: '课程安排', href: '#' },
-  { name: '报名咨询', href: '#' },
-  { name: 'About ACS', href: '#' },
-]
+    const navigation = [
+    { name: '了解详情', href: '#' },
+    { name: '课程安排', href: '/course' },
+    { name: '报名咨询', href: '/register' },
+    { name: 'About ACS', href: '#' },
+    ]
 </script>
 
 <script>
-import IntroductionCard from '@/components/IntroductionCard.vue'
+    
 
-export default {
-  name: 'MainPage',
-  components: {
-    IntroductionCard
-  }
+    export default {
+    name: 'MainPage',
+    components: {
+        IntroductionCard
+    }
 }
 
 </script>
