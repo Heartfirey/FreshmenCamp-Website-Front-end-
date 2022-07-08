@@ -61,9 +61,9 @@
     import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
     import { MenuIcon, XIcon } from '@heroicons/vue/outline'
     const navigation = [
-    { name: '了解详情', href: '#' },
-    { name: '课程安排', href: '/course' },
-    { name: '报名咨询', href: '/register' },
+    { name: '了解详情', href: '/camp/main' },
+    { name: '课程安排', href: '/camp/course' },
+    { name: '报名咨询', href: '/camp/register' },
     { name: 'About ACS', href: '#' },
     ]
 </script>

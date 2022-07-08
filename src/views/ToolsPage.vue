@@ -17,7 +17,7 @@
     </div>
     <div class="max-w-7xl flex flex-col py-16 gap-8 mx-auto px-4 sm:px-6 lg:px-8">
         <a class="shadow mx-auto grid grid-cols-1 overflow-hidden border border-gray-100 rounded-lg group sm:grid-cols-3"
-            href="">
+            href="https://wwc.lanzouj.com/iEPkB073m6xc">
             <div class="grid place-items-center">
                 <img class="inset-0 object-cover w-full" src="@/assets/edev.png" alt="" />
             </div>
@@ -56,7 +56,7 @@
             </div>
         </a>
         <a class="shadow mx-auto grid grid-cols-1 overflow-hidden border border-gray-100 rounded-lg group sm:grid-cols-3"
-            href="">
+            href="https://www.fosshub.com/Code-Blocks.html?dwl=codeblocks-20.03mingw-setup.exe">
             <div class="grid place-items-center">
                 <img class="inset-0 object-cover w-full" src="@/assets/codeblocks.png" alt="" />
             </div>
@@ -166,7 +166,7 @@
             </div>
         </a>
         <a class="shadow mx-auto grid grid-cols-1 overflow-hidden border border-gray-100 rounded-lg group sm:grid-cols-3"
-            href="https://code.visualstudio.com/">
+            href="https://github.com/marktext/marktext/releases/download/v0.17.1/marktext-setup.exe">
             <div class="grid place-items-center">
                 <img class="inset-0 object-cover w-full" src="@/assets/marktext.png" alt="" />
             </div>

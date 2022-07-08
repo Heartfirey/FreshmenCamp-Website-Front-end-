@@ -24,7 +24,7 @@ const routes = [
     {
         name: 'default',
         path: '/',
-        redirect: "main"
+        redirect: "/main"
     },
     
 ];
