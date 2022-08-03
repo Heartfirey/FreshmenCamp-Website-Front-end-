@@ -23,7 +23,7 @@
               </div>
               <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-medium text-gray-500 hover:text-gray-900">{{ item.name }}</a>
-                <a href="/tools" class="font-medium text-indigo-600 hover:text-indigo-500">软件资源</a>
+                <a href="/camp/tools" class="font-medium text-indigo-600 hover:text-indigo-500">软件资源</a>
               </div>
             </nav>
           </div>
@@ -45,7 +45,7 @@
                 <div class="px-2 pt-2 pb-3 space-y-1">
                   <a v-for="item in navigation" :key="item.name" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
                 </div>
-                <a href="/tools" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"> 软件资源 </a>
+                <a href="/camp/tools" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"> 软件资源 </a>
               </div>
             </PopoverPanel>
           </transition>
@@ -103,7 +103,7 @@
 
                     <div class="col-span-6 sm:col-span-3">
                     <label for="class" class="block text-sm font-medium text-gray-700">班级选择</label>
-                    <select id="class" v-model="classSelect" name="classSelect" autocomplete="class-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <select id="class" v-on:change="classSelect($event, option)" v-model="classChange" name="classSelect" autocomplete="class-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         <option v-for="(item, index) in info" v-bind:key="index" :value="item.className">{{ item.className }}</option>
                     </select>
                     </div>
@@ -121,7 +121,7 @@
                     <div class="col-span-6 sm:col-span-5">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
                     <p class="mt-2 mb-2 text-sm text-red-400">* 此邮件地址将用作OnlineJudge在线评测系统账号</p>
-                    <input @change="emailChangeWatch" type="text" v-model="emailChange" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input v-on:change="emailChangeWatch($event, option)" type="text" v-model="emailChange" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                     <p class="mt-2 text-sm" id="verify_status">{{ emailVerify }}</p>
                     
                     </div>
@@ -338,7 +338,7 @@
         data () {
             return {
                 schoolChange: '',
-                classSelect: '',
+                classChange: '',
                 emailChange: '',
                 emailVerify: '',
                 emailCorrect: false,
@@ -359,7 +359,11 @@
                         console.log(err);
                     });  
             },
-            emailChangeWatch: function(){
+            classSelect: async function(event){
+                this.classChange = event.target.value
+            },
+            emailChangeWatch: function(event){
+                this.emailChange = event.target.value
                 var verify = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
                 if(!verify.test(this.emailChange)){
                     document.querySelector("#verify_status").className = "mt-2 text-sm text-red-400";
@@ -374,7 +378,7 @@
             submitInfo: async function(){
                 let userFilledInfo = {
                     schoolName: this.schoolChange,
-                    className: this.classSelect,
+                    className: this.classChange,
                     studentName: this.$refs.studentName.value,
                     studentID: this.$refs.studentID.value,
                     email: this.emailChange,
@@ -475,8 +479,6 @@
                     this.ResultPasswd = "JxnuCie2022+身份证号后6位";
                     this.regResultCard = true;
                     this.$forceUpdate();
-                }
-
             }
         }
     }
